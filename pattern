@@ -1,0 +1,41 @@
+/* 4444444
+   4333334
+   4322234
+   4321234
+   4322234
+   4333334
+   4444444 */
+
+public class pattern1 {
+    public static void main(String args[]) {
+        int A = 4;
+        int l = (2*A)-1, m = l;
+        int arr[][] = new int[l][l];
+        //ArrayList<ArrayList<Integer>> arr = new ArrayList<ArrayList<Integer>>();
+        
+        for(int i = 0; i < l; i++){
+            for(int j = 0; j < l; j++){
+                arr[i][j] = -1;
+            }
+        }
+        
+        for(int k = 0; k < 4; k++){
+            for(int i = k; i < l; i++){
+                for(int j = k; j < l; j++){
+                    if(arr[i][j] == -1 && (i == (l-m) || j == (l-m) || i == (m-1) || j == (m-1))){
+                        arr[i][j] = A;
+                    }
+                }
+            }
+            m--;
+            A--;
+        }
+        
+        for(int i = 0; i < l; i++){
+            for(int j = 0; j < l; j++){
+                System.out.print(arr[i][j]);
+            }
+            System.out.println();
+        }
+    }
+}
